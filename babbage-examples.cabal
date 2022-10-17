@@ -1,0 +1,124 @@
+cabal-version: 2.4
+
+name:                   babbage-examples
+version:                1.27.0
+author:                 Adrian Hütter
+maintainer:             Discord @adrian.#4706
+license:                Apache-2.0
+license-file:           LICENSE
+extra-source-files:     README.md
+
+Flag unexpected_thunks
+  Description:   Turn on unexpected thunks checks
+  Default:       False
+
+common base
+  build-depends: base >= 4.14 && < 4.15
+
+common project-config
+  default-language:     Haskell2010
+
+  default-extensions:   NoImplicitPrelude
+                        OverloadedStrings
+
+  ghc-options:          -Wall
+                        -Wcompat
+                        -Wincomplete-record-updates
+                        -Wincomplete-uni-patterns
+                        -Wpartial-fields
+                        -Wredundant-constraints
+                        -Wunused-packages
+
+common maybe-Win32
+  if os(windows)
+     build-depends:    Win32
+
+library
+  import:               base, project-config
+                      , maybe-Win32
+
+  if flag(unexpected_thunks)
+    cpp-options: -DUNEXPECTED_THUNKS
+
+  hs-source-dirs:       src
+
+  exposed-modules:      V2.ReferenceInput
+                        V2.InlineDatum
+                        V2.ReferenceScript
+                        V2.ReferenceScriptAtScript
+  build-depends:        bytestring
+                      , cardano-api
+                      , plutus-core
+                      , plutus-ledger-api
+                      , plutus-tx
+                      , serialise
+                      , plutus-ledger
+                      , aeson 
+                      , plutus-script-utils
+                      , plutus-tx-plugin
+
+  ghc-options: -fobject-code -fno-ignore-interface-pragmas -fno-omit-interface-pragmas
+
+executable data-v2
+  import:               base, project-config
+  hs-source-dirs:       app
+  main-is:              data-v2.hs
+  ghc-options:          -threaded -rtsopts "-with-rtsopts=-T"
+
+  build-depends:        cardano-api
+                      , bytestring
+                      , aeson 
+                      , plutus-tx
+                      , babbage-examples
+
+executable plutus-ReferenceInput
+  import:               base, project-config
+  hs-source-dirs:       app
+  main-is:              plutus-ReferenceInput.hs
+  ghc-options:          -threaded -rtsopts "-with-rtsopts=-T"
+
+  build-depends:        cardano-api
+                      , babbage-examples
+
+executable plutus-InlineDatum
+  import:               base, project-config
+  hs-source-dirs:       app
+  main-is:              plutus-InlineDatum.hs
+  ghc-options:          -threaded -rtsopts "-with-rtsopts=-T"
+
+  build-depends:        cardano-api
+                      , babbage-examples
+
+executable plutus-ReferenceScript
+  import:               base, project-config
+  hs-source-dirs:       app
+  main-is:              plutus-ReferenceScript.hs
+  ghc-options:          -threaded -rtsopts "-with-rtsopts=-T"
+
+  build-depends:        cardano-api
+                      , babbage-examples
+
+executable plutus-ReferenceScriptAtScript
+  import:               base, project-config
+  hs-source-dirs:       app
+  main-is:              plutus-ReferenceScriptAtScript.hs
+  ghc-options:          -threaded -rtsopts "-with-rtsopts=-T"
+
+  build-depends:        cardano-api
+                      , babbage-examples
+
+executable Str-to-Tn
+  default-language: Haskell2010
+  main-is: Str-to-Tn.hs
+  hs-source-dirs:      app
+  ghc-options:         -Wall
+  build-depends:       base ^>= 4.14.1.0
+                     , plutus-tx
+                     , bytestring
+                     , serialise
+                     , aeson
+                     , text
+                     , plutus-ledger
+                     , cardano-api 
+                     , cardano-crypto-class
+                     , plutus-ledger-api
