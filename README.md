@@ -29,6 +29,6 @@ Project to outline the functionalities of the new babbage era consisting of vali
 * go into the /v2 folder and run `./createPlutusData.sh`
     - creates validators, datums, redeemers in /Data folder  
 * now you can run the examples provided in the subdirectories
-    - [ReferenceInput](testnet/v2/CIP31-reference-inputs.md)
-    - [ReferenceScript](testnet/v2/CIP33-reference-scripts.md)
-    - [InlineDatum](testnet/v2/CIP32-inline-datums.md)
+    - [ReferenceInput](testnet/v2/ReferenceInput/CIP31-reference-inputs.md)
+    - [ReferenceScript](testnet/v2/ReferenceScript/CIP33-reference-scripts.md)
+    - [InlineDatum](testnet/v2/InlineDatum/CIP32-inline-datums.md)
