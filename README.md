@@ -6,6 +6,8 @@ Project to outline the functionalities of the new babbage era consisting of vali
 
 * [The Plutus Application Framework](https://github.com/input-output-hk/plutus-apps)
 * [cardano-node](https://github.com/input-output-hk/cardano-node)
+* [jq](https://stedolan.github.io/jq/download/)
+    - Ubuntu: `sudo apt-get install jq`
 * at least one funded [wallet](https://developers.cardano.org/docs/stake-pool-course/handbook/keys-addresses/)
 * one token in the wallet 
 
