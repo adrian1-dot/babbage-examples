@@ -38,11 +38,11 @@ A reference script is a script that exists at a particular transaction output. I
 
 ## validator 
 
-### [reference script at wallet](/../../../src/V2/ReferenceScript.hs) 
+### [reference script at wallet](../../../src/V2/ReferenceScript.hs) 
 
 Is valid if one output creates a reference script of the current validator. 
 
-### [reference script at script](/../../../src/V2/referenceScriptAtScript.hs) 
+### [reference script at script](../../../src/V2/referenceScriptAtScript.hs) 
 #### validator one 
 
 Is valid if input and output has correct token and datum hash not changed. 

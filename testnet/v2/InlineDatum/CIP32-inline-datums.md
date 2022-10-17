@@ -15,5 +15,5 @@ An inline datum, is a datum that exists at a transaction output. We no longer ha
 
 *Note: 2 ada will remain forever at the contract*
 
-## [validator](/../../../src/V2/InlineDatum.hs) 
+## [validator](../../../src/V2/InlineDatum.hs) 
 Is valid if the datum integer is the difference between contract input and output and the datum is same. 
