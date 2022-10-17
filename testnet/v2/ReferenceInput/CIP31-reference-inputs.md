@@ -16,5 +16,5 @@ In the case where we are not using a reference input to reference another transa
 5. other commands 
    -`./cbalance` shows balance at contract
 
-## [validator](/../../../V2/ReferenceInput.hs) 
+## [validator](/../../../src/V2/ReferenceInput.hs) 
 Is valid if the reference input has the token, invalid if the token is a normal input.
