@@ -108,7 +108,7 @@ data TxInInfo = TxInInfo
     }`
 
 - txOutDatum is a new type `data OutputDatum = NoOutputDatum | OutputDatumHash DatumHash | OutputDatum Datum` **OutputDatum** is the new inline-datum 
-- txOutReferenceScript is a reference script attached to a transaction output only, as input it just tells the node to build the transaction for the referenced script but isn't included in the transaction 
+- txOutReferenceScript is a reference script attached to a transaction output, as input it just tells the node to build the transaction for the referenced script but isn't included in the transaction 
 
 
 
