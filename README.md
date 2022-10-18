@@ -45,45 +45,45 @@ Project to outline the functionalities of the new babbage era consisting of vali
 #### V1 
 
 `data TxInfo = TxInfo`    
-    `{ txInfoInputs      :: [TxInInfo] -- ^ Transaction inputs`
-    `, txInfoOutputs     :: [TxOut] -- ^ Transaction outputs`
+    `{ txInfoInputs      :: [TxInInfo] -- ^ Transaction inputs`    
+    `, txInfoOutputs     :: [TxOut] -- ^ Transaction outputs`    
     `, txInfoFee         :: Value -- ^ The fee paid by this transaction.`    
-    `, txInfoMint        :: Value -- ^ The 'Value' minted by this transaction.`
-    `, txInfoDCert       :: [DCert] -- ^ Digests of certificates included in this transaction`
-    `, txInfoWdrl        :: [(StakingCredential, Integer)] -- ^ Withdrawals`
-    `, txInfoValidRange  :: POSIXTimeRange -- ^ The valid range for the transaction.`
-    `, txInfoSignatories :: [PubKeyHash] -- ^ Signatures provided with the transaction, attested that they all signed the tx`
-    `, txInfoData        :: [(DatumHash, Datum)]`
-    `, txInfoId          :: TxId`
-    `-- ^ Hash of the pending transaction (excluding witnesses)`
+    `, txInfoMint        :: Value -- ^ The 'Value' minted by this transaction.`    
+    `, txInfoDCert       :: [DCert] -- ^ Digests of certificates included in this transaction`    
+    `, txInfoWdrl        :: [(StakingCredential, Integer)] -- ^ Withdrawals`    
+    `, txInfoValidRange  :: POSIXTimeRange -- ^ The valid range for the transaction.`    
+    `, txInfoSignatories :: [PubKeyHash] -- ^ Signatures provided with the transaction, attested that they all signed the tx`    
+    `, txInfoData        :: [(DatumHash, Datum)]`    
+    `, txInfoId          :: TxId`    
+    `-- ^ Hash of the pending transaction (excluding witnesses)`    
     `}`
 
 #### V2 
 
-`data TxInfo = TxInfo` 
-    `{ txInfoInputs          :: [TxInInfo] -- ^ Transaction inputs`
-  **`, txInfoReferenceInputs :: [TxInInfo] -- ^ Transaction reference inputs`**
-    `, txInfoOutputs         :: [TxOut] -- ^ Transaction outputs`
-    `, txInfoFee             :: Value -- ^ The fee paid by this transaction.`
-    `, txInfoMint            :: Value -- ^ The 'Value' minted by this transaction.`
-    `, txInfoDCert           :: [DCert] -- ^ Digests of certificates included in this transaction`
-    `, txInfoWdrl            :: Map StakingCredential Integer -- ^ Withdrawals`
-    `, txInfoValidRange      :: POSIXTimeRange -- ^ The valid range for the transaction.`
-    `, txInfoSignatories     :: [PubKeyHash] -- ^ Signatures provided with the transaction, attested that they all signed the tx`
-    `, txInfoRedeemers       :: Map ScriptPurpose Redeemer`
-    `, txInfoData            :: Map DatumHash Datum`
-    `, txInfoId              :: TxId`
-    `-- ^ Hash of the pending transaction (excluding witnesses)`
+`data TxInfo = TxInfo`    
+    `{ txInfoInputs          :: [TxInInfo] -- ^ Transaction inputs`    
+  **`, txInfoReferenceInputs :: [TxInInfo] -- ^ Transaction reference inputs`**    
+    `, txInfoOutputs         :: [TxOut] -- ^ Transaction outputs`    
+    `, txInfoFee             :: Value -- ^ The fee paid by this transaction.`    
+    `, txInfoMint            :: Value -- ^ The 'Value' minted by this transaction.`    
+    `, txInfoDCert           :: [DCert] -- ^ Digests of certificates included in this transaction`    
+    `, txInfoWdrl            :: Map StakingCredential Integer -- ^ Withdrawals`    
+    `, txInfoValidRange      :: POSIXTimeRange -- ^ The valid range for the transaction.`    
+    `, txInfoSignatories     :: [PubKeyHash] -- ^ Signatures provided with the transaction, attested that they all signed the tx`    
+    `, txInfoRedeemers       :: Map ScriptPurpose Redeemer`    
+    `, txInfoData            :: Map DatumHash Datum`    
+    `, txInfoId              :: TxId`    
+    `-- ^ Hash of the pending transaction (excluding witnesses)`    
     `}`
 
 - `txInfoReferenceInputs` indicated with `--read-only-tx-in-reference` (cardano-cli), only possible with wallet utxos 
 
 ### TxInfo 
 
-`-- | An input of a pending transaction.` 
-`data TxInInfo = TxInInfo`
-    `{ txInInfoOutRef   :: TxOutRef`
-    `, txInInfoResolved :: TxOut`
+`-- | An input of a pending transaction.`    
+`data TxInInfo = TxInInfo`    
+    `{ txInInfoOutRef   :: TxOutRef`    
+    `, txInInfoResolved :: TxOut`    
     `}`
 
 **Nothing changed** 
@@ -92,17 +92,17 @@ Project to outline the functionalities of the new babbage era consisting of vali
 
 #### V1 
 
-`data TxOut = TxOut {`
-    `txOutAddress   :: Address,`
-    `txOutValue     :: Value,` 
-    `txOutDatumHash :: Maybe DatumHash` 
+`data TxOut = TxOut {`    
+    `txOutAddress   :: Address,`    
+    `txOutValue     :: Value,`    
+    `txOutDatumHash :: Maybe DatumHash`    
     `}`
 
 #### V2 
 
-`data TxOut = TxOut {`
-    `txOutAddress         :: Address,`
-    `txOutValue           :: Value,` 
+`data TxOut = TxOut {`    
+    `txOutAddress         :: Address,`    
+    `txOutValue           :: Value,`    
   **`txOutDatum           :: OutputDatum,`**    
   **`txOutReferenceScript :: Maybe ScriptHash`**    
     `}`
